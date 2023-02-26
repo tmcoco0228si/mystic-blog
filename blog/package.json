@@ -15,6 +15,7 @@
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
     "gray-matter": "^4.0.3",
+    "hamburger-react": "^2.5.0",
     "next": "13.2.1",
     "react": "18.2.0",
     "react-burger-menu": "^3.0.9",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "@types/react-burger-menu": "^2.8.3",
     "@types/three": "^0.149.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
