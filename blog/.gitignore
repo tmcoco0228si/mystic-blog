@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+#license
+license.txt
+
+#pic
+*models/
+*public/
+#posts
+*posts/
