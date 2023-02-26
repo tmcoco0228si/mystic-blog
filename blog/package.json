@@ -21,6 +21,7 @@
     "react-mark": "^0.0.4",
     "react-markdown": "^8.0.5",
     "remark-gfm": "^3.0.1",
+    "three": "^0.150.0",
     "typescript": "4.9.5"
   },
   "devDependencies": {
