@@ -5,6 +5,7 @@ export const getPostsData = () => {
   const files = fs.readdirSync("posts");
   const posts = files.map((fileName) => {
     const postId = fileName.replace(/\.md$/, "");
+    //ファイル内容取得
     const fileContent = fs.readFileSync(`posts/${fileName}`, "utf-8");
     const { data } = matter(fileContent);
     return {

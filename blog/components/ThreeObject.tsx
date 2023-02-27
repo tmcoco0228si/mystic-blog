@@ -51,7 +51,7 @@ const ThreeObject = () => {
 
       function animate() {
         requestAnimationFrame(animate);
-        // model.rotation.x += 0.005;
+        //横回転
         model.rotation.y += 0.01;
         renderer.render(scene, camera);
       }
