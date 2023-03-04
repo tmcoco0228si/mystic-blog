@@ -3,9 +3,17 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+import { useContext } from "react";
+import { AllTheme } from "../pages/_app";
+
+
 const ThreeObject = () => {
   let canvas: HTMLElement;
   let obj: THREE.Group;
+
+  const { objTheme, setObjTheme } = useContext(AllTheme);
+  
+console.log(`${objTheme}現在の値です！`)
 
   useEffect(() => {
     if (canvas) return;
@@ -13,7 +21,7 @@ const ThreeObject = () => {
     canvas = document.getElementById("canvas")!;
     // シーン
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("white");
+    scene.background = new THREE.Color(objTheme);
     // サイズ
     const sizes = {
       width: 800,
@@ -39,7 +47,7 @@ const ThreeObject = () => {
 
     //3Dモデルのインポート
     const gltfLoader = new GLTFLoader();
-    // gltfLoader.load("./models/shiba/shiba.gltf", (gltf) => {
+
     gltfLoader.load("./models/gopher/gopher.gltf", (gltf) => {
       obj = gltf.scene;
       // オブジェクトのみの大きさ（余白等は対象外）
@@ -47,9 +55,9 @@ const ThreeObject = () => {
       scene.add(obj);
 
       const pointLight = new THREE.AmbientLight(0xffffff, 1);
-      // const pointLight = new THREE.PointLight(0xffffff, 1.25)
-      pointLight.position.set(1, 1, 100)
-      camera.position.set(0, 2, 8);
+
+      pointLight.position.set(1, 1, 100);
+      camera.position.set(0, 4, 8);
       scene.add(pointLight);
 
       function animate() {
@@ -63,14 +71,10 @@ const ThreeObject = () => {
 
       animate();
     });
-  }, []);
+  }, [objTheme]);
   return (
     <div className="flex justify-center">
-      <canvas
-        id="canvas"
-        className="bg-white text-center w-0 h-0"
-        onClick={() => console.log("柴犬")}
-      ></canvas>
+      <canvas id="canvas"></canvas>
     </div>
   );
 };
