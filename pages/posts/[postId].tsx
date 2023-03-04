@@ -18,7 +18,6 @@ export async function getStaticPaths() {
       postId: fileName.replace(/\.md$/, ""),
     },
   }));
-  console.log("paths:", paths);
   return {
     paths,
     fallback: false,
@@ -26,7 +25,7 @@ export async function getStaticPaths() {
 }
 const Post = ({ frontMatter, content }: any) => {
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose prose-lg max-w-none ">
       <div className="border-none">
         <Image
           src={`/${frontMatter.image}`}
@@ -36,7 +35,10 @@ const Post = ({ frontMatter, content }: any) => {
         />
       </div>
       <h1 className="mt-12">{frontMatter.title}</h1>
+      <div className="dark:bg-darkgrey">
+
       <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Image from "next/image";
 const PostCard = ({ post }: any) => {
   return (
     <Link href={`/posts/${post.postId}`}>
-      <div className="border rounded-lg mx-2 h-auto">
+      <div className="mx-2 h-auto">
         <div className="rounded-md">
           <Image
             src={`/${post.frontMatter.image}`}
