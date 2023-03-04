@@ -6,7 +6,7 @@ import { createContext, useState } from "react";
 
 export const AllTheme = createContext<any>([]);
 export default function App({ Component, pageProps }: AppProps) {
-  const [objTheme, setObjTheme] = useState("");
+  const [objTheme, setObjTheme] = useState("dark");
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
