@@ -10,7 +10,11 @@ module.exports = {
   ],
   darkMode: "class", //ダークモードを有効化(ON/OFFの切り替え)
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkgrey: "#222831", //darkModeで使用したい色を拡張定義
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
