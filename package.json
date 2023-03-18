@@ -14,6 +14,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
+    "framer-motion": "^10.6.0",
     "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.0",
     "iconoir-react": "^6.3.0",
