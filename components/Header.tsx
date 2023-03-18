@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (windowWidth >= 640) { // スマートフォンの幅に合わせて変更
+    if (windowWidth >= 640) {
       setIsOpen(false);
     }
   }, [windowWidth]);
@@ -51,8 +51,9 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="bg-gray-800 text-white shadow-md">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<header className="bg-gray-800 text-white shadow-md fixed top-0 left-0 w-full z-10">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <h1 className="text-white font-bold text-lg sm:text-2xl">MyLogo</h1>
         <button

@@ -1,32 +1,13 @@
-import React from "react";
+import { faFacebookF, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-  faLinkedinIn
-} from "@fortawesome/free-brands-svg-icons";
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <footer className="bg-gray-900">
+    <footer className="bg-gray-900 mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16 flex flex-wrap justify-between text-gray-100">
         {/* Col-1 */}
         <div className="w-full md:w-3/12 mb-8 md:mb-0">
           {/* Col Title */}
-          <div className="text-sm uppercase font-medium mb-4">
-            Getting Started
-          </div>
-          {/* Links */}
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Installation
-          </a>
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Release Notes
-          </a>
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Upgrade Guide
-          </a>
         </div>
 
         {/* Col-4 */}
@@ -38,12 +19,6 @@ const Footer = () => {
           {/* Links */}
           <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
             GitHub
-          </a>
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Discord
-          </a>
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Twitter
           </a>
         </div>
 
@@ -64,9 +39,7 @@ const Footer = () => {
             <a href="/" className="mr-4 text-lg hover:text-gray-300">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="/" className="mr-4 text-lg hover:text-gray-300">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
+
           </div>
         </div>
 
@@ -81,4 +54,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer
