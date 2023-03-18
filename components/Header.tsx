@@ -52,6 +52,7 @@ const Header = () => {
 
   return (
     <header className="bg-gray-800 text-white shadow-md">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <h1 className="text-white font-bold text-lg sm:text-2xl">MyLogo</h1>
         <button
