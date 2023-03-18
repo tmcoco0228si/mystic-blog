@@ -47,23 +47,31 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Col-4 */}
-        <div className="w-full md:w-3/12 mb-8 md:mb-0">
+        {/* Col-2 */}
+        <div className="w-full md:w-2/12 mb-8 md:mb-0">
           {/* Col Title */}
           <div className="text-sm uppercase font-medium mb-4">
-            More
+            Follow Us
           </div>
           {/* Links */}
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Support
-          </a>
-          <a href="/" className="block mb-2 text-sm font-medium duration-200 hover:text-gray-300">
-            Privacy Policy
-          </a>
+          <div className="flex items-center">
+            <a href="/" className="mr-4 text-lg hover:text-gray-300">
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+            <a href="/" className="mr-4 text-lg hover:text-gray-300">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a href="/" className="mr-4 text-lg hover:text-gray-300">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="/" className="mr-4 text-lg hover:text-gray-300">
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </a>
+          </div>
         </div>
 
         {/* Col-12 */}
-        <div className="w-full pt-4 border-t border-gray-800 text-center mt-16 md:mt-0">
+        <div className="w-full pt-4 border-t border-gray-800 text-center md:pt-0">
           <p className="text-xs">
             &copy; {new Date().getFullYear()} MyWebsite. All rights reserved.
           </p>

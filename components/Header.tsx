@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChangeThemeButton } from "./ChangeTheneButton";
 
@@ -6,7 +6,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
-  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -20,20 +19,17 @@ const Header = () => {
     };
   }, []);
 
-  // Close mobile menu when window size is larger than 1024px
   useEffect(() => {
-    if (windowWidth >= 1024) {
+    if (windowWidth >= 640) { // スマートフォンの幅に合わせて変更
       setIsOpen(false);
     }
   }, [windowWidth]);
 
-  // Animation variants for the mobile menu
   const menuVariants = {
     open: { opacity: 1, scaleY: 1, originY: 0 },
     closed: { opacity: 0, scaleY: 0, originY: 0 },
   };
 
-  // Close mobile menu when clicked outside of the menu
   const handleClickOutside = (event: MouseEvent) => {
     if (event.target instanceof Element) {
       if (!event.target.closest("header")) {
@@ -41,24 +37,23 @@ const Header = () => {
       }
     }
   };
-  
+
   useEffect(() => {
     if (isOpen) {
       window.addEventListener("click", handleClickOutside);
     } else {
       window.removeEventListener("click", handleClickOutside);
     }
-  
+
     return () => {
       window.removeEventListener("click", handleClickOutside);
     };
   }, [isOpen]);
-  
 
   return (
     <header className="bg-gray-800 text-white shadow-md">
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="text-white font-bold text-lg">MyLogo</h1>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <h1 className="text-white font-bold text-lg sm:text-2xl">MyLogo</h1>
         <button
           className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -68,26 +63,23 @@ const Header = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.nav
-              className="z-10 absolute left-0 w-full mt-2 py-2 bg-white shadow-lg rounded lg:mt-0 lg:bg-transparent lg:shadow-none lg:w-auto lg:static lg:flex gap-4 text-black font-semibold lg:text-white"
+              className="z-10 absolute left-0 w-full mt-2 py-2 bg-white shadow-lg rounded sm:mt-0 sm:bg-transparent sm:shadow-none sm:w-auto sm:static sm:flex gap-4 text-black font-semibold sm:text-white"
               initial="closed"
               animate="open"
               exit="closed"
               variants={menuVariants}
               transition={{ duration: 0.3 }}
             >
-              <a href="/" className="block px-4 py-2 lg:hover:underline">
+              <a href="/" className="block px-4 py-2 sm:hover:underline">
                 Home
               </a>
-              <a href="/" className="block px-4 py-2 lg:hover:underline">
+              <a href="/" className="block px-4 py-2 sm:hover:underline">
                 About
               </a>
-              <a
-                href="/"
-                className="block px-4 py-2 lg:hover:underline"
-              >
+              <a href="/" className="block px-4 py-2 sm:hover:underline">
                 Contact
               </a>
-            <ChangeThemeButton />
+              <ChangeThemeButton />
             </motion.nav>
           )}
         </AnimatePresence>
@@ -101,7 +93,7 @@ const Header = () => {
           <a href="/" className="hover:underline">
             Contact
           </a>
-          <ChangeThemeButton/>
+          <ChangeThemeButton />
         </nav>
       </div>
     </header>
