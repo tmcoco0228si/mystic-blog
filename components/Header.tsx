@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChangeThemeButton } from "./ChangeTheneButton";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,7 @@ const Header = () => {
   
 
   return (
-    <header className="bg-blue-500 py-4">
+    <header className="bg-gray-800 text-white shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <h1 className="text-white font-bold text-lg">MyLogo</h1>
         <button
@@ -65,40 +66,42 @@ const Header = () => {
           ≡
         </button>
         <AnimatePresence>
-  {isOpen && (
-    <motion.nav
-      className="z-10 absolute left-0 w-full mt-2 py-2 bg-white shadow-lg rounded lg:mt-0 lg:bg-transparent lg:shadow-none lg:w-auto lg:static lg:flex gap-4 text-black font-semibold lg:text-white"
-      initial="closed"
-      animate="open"
-      exit="closed"
-      variants={menuVariants}
-      transition={{ duration: 0.3 }}
-    >
-      <a href="/" className="block px-4 py-2 lg:hover:underline">
-        Home
-      </a>
-      <a href="/about" className="block px-4 py-2 lg:hover:underline">
-        About
-      </a>
-      <a
-        href="/contact"
-        className="block px-4 py-2 lg:hover:underline"
-      >
-        Contact
-      </a>
-    </motion.nav>
-  )}
-</AnimatePresence>
+          {isOpen && (
+            <motion.nav
+              className="z-10 absolute left-0 w-full mt-2 py-2 bg-white shadow-lg rounded lg:mt-0 lg:bg-transparent lg:shadow-none lg:w-auto lg:static lg:flex gap-4 text-black font-semibold lg:text-white"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              transition={{ duration: 0.3 }}
+            >
+              <a href="/" className="block px-4 py-2 lg:hover:underline">
+                Home
+              </a>
+              <a href="/" className="block px-4 py-2 lg:hover:underline">
+                About
+              </a>
+              <a
+                href="/"
+                className="block px-4 py-2 lg:hover:underline"
+              >
+                Contact
+              </a>
+            <ChangeThemeButton />
+            </motion.nav>
+          )}
+        </AnimatePresence>
         <nav className="hidden lg:flex gap-4 text-white">
           <a href="/" className="hover:underline">
             Home
           </a>
-          <a href="/about" className="hover:underline">
+          <a href="/" className="hover:underline">
             About
           </a>
-          <a href="/contact" className="hover:underline">
+          <a href="/" className="hover:underline">
             Contact
           </a>
+          <ChangeThemeButton/>
         </nav>
       </div>
     </header>

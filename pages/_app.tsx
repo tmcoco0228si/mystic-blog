@@ -1,20 +1,39 @@
-import Layout from "@/components/Layout";
+import { createContext, useContext, useEffect, useState } from "react";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { ThemeProvider, useTheme } from "next-themes";
-import { createContext, useState } from "react";
+import { AppProps } from "next/app";
+import Layout from "@/components/Layout";
+import { ThemeProvider } from "next-themes";
 
-export const AllTheme = createContext<any>([]);
-export default function App({ Component, pageProps }: AppProps) {
-  const [objTheme, setObjTheme] = useState("dark");
+
+interface IDarkModeContext {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+export const DarkModeContext = createContext<IDarkModeContext>({
+  isDarkMode: false,
+  toggleDarkMode: () => {},
+});
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
-      <AllTheme.Provider value={{ objTheme, setObjTheme }}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </AllTheme.Provider>
+    <ThemeProvider attribute="class">
+      <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+        <Layout><Component {...pageProps} /></Layout>
+        
+      </DarkModeContext.Provider>
     </ThemeProvider>
   );
 }
+
+export default MyApp;
