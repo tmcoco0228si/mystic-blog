@@ -14,8 +14,6 @@ const ThreeObject = () => {
   // ダークモードのコンテキストを使用
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
-  
-
   useEffect(() => {
     let canvas: HTMLCanvasElement | null = null;
     let obj: THREE.Group | null = null;
@@ -31,10 +29,10 @@ const ThreeObject = () => {
       scene.background = new THREE.Color(isDarkMode ? "#222831" : "#ffffff");
       sceneRef.current = scene;
       // サイズを設定
-    
+
       const sizes = {
-        width: (window.innerWidth) * 0.75,
-        height: (window.innerHeight) * 0.3,
+        width: window.innerWidth * 0.75,
+        height: window.innerHeight * 0.3,
       };
 
       // カメラを作成
@@ -92,19 +90,20 @@ const ThreeObject = () => {
   // 背景色が変更されたときに3Dモデルの背景色を更新する
   useEffect(() => {
     if (sceneRef.current) {
-      sceneRef.current.background = new THREE.Color(isDarkMode ? "#222831" : "#ffffff");
+      sceneRef.current.background = new THREE.Color(
+        isDarkMode ? "#222831" : "#ffffff"
+      );
     }
-  },[isDarkMode]);
+  }, [isDarkMode]);
 
-return (
-  // レンダリングのための<div>要素を作成
-  // レンダリングのための<div>要素を作成
-  <div className="flex justify-center dark:bg-darkgrey overflow-y-hidden overflow-x-hidden">
-    <canvas ref={canvasRef} id="canvas" className="w-full"></canvas>
-  </div>
-);
+  return (
+    // レンダリングのための<div>要素を作成
+    // レンダリングのための<div>要素を作成
+    <div className="flex justify-center dark:bg-darkgrey overflow-y-hidden overflow-x-hidden">
+      <canvas ref={canvasRef} id="canvas" className="w-full"></canvas>
+    </div>
+  );
 };
 
 // コンポーネントをエクスポート
 export default ThreeObject;
-

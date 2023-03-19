@@ -4,7 +4,6 @@ import { AppProps } from "next/app";
 import Layout from "@/components/Layout";
 import { ThemeProvider } from "next-themes";
 
-
 interface IDarkModeContext {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
@@ -29,8 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
-        <Layout><Component {...pageProps} /></Layout>
-        
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </DarkModeContext.Provider>
     </ThemeProvider>
   );
