@@ -55,7 +55,7 @@ const Header = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <div className={`container ${windowWidth >= 640 ? 'mx-auto px-4' : ''} sm:px-6 lg:px-8 flex justify-start items-center`}>
       <h1 className="text-white font-bold text-xs tiny:text-sm sm:text-lg md:text-xl mr-auto">
-        Mystic blog
+      trailstem blog
       </h1>
 
         <button
