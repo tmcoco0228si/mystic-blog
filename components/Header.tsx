@@ -51,17 +51,20 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-<header className="w-full bg-gray-800 text-white shadow-md fixed top-0 left-0 z-10">
+    <header className="w-full bg-gray-800 text-white shadow-md fixed top-0 left-0 z-10">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-start items-center">
+      <h1 className="text-white font-bold text-xs tiny:text-sm sm:text-lg md:text-xl mr-auto">
+        Mystic blog
+      </h1>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      <h1 className="text-white font-bold text-xs tiny:text-sm sm:text-lg md:text-xl">Mystic blog</h1>
+
 
         <button
           className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          ≡
+          <span className="text-xl">&#9776;</span>
         </button>
         <AnimatePresence>
           {isOpen && (
