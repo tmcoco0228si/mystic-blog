@@ -51,11 +51,12 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-<header className="bg-gray-800 text-white shadow-md fixed top-0 left-0 w-full z-10">
+<header className="w-full bg-gray-800 text-white shadow-md fixed top-0 left-0 z-10">
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h1 className="text-white font-bold text-lg sm:text-2xl">MyLogo</h1>
+      <h1 className="text-white font-bold text-xs tiny:text-sm sm:text-lg md:text-xl">MyLogo</h1>
+
         <button
           className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
