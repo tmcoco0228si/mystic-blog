@@ -14,6 +14,8 @@ const ThreeObject = () => {
   // ダークモードのコンテキストを使用
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
+  
+
   useEffect(() => {
     let canvas: HTMLCanvasElement | null = null;
     let obj: THREE.Group | null = null;
@@ -28,11 +30,11 @@ const ThreeObject = () => {
       // 背景色を設定
       scene.background = new THREE.Color(isDarkMode ? "#222831" : "#ffffff");
       sceneRef.current = scene;
-
       // サイズを設定
+    
       const sizes = {
-        width: 800,
-        height: 400,
+        width: (window.innerWidth) * 0.75,
+        height: (window.innerHeight) * 0.3,
       };
 
       // カメラを作成
@@ -59,7 +61,8 @@ const ThreeObject = () => {
         obj = gltf.scene;
 
         // オブジェクトのみの大きさを設定（余白等は対象外）
-        obj.scale.set(0.75, 0.75, 0.75);
+        obj.scale.set(0.7, 0.7, 0.7);
+
         scene.add(obj);
 
         // ライトを追加
@@ -95,8 +98,9 @@ const ThreeObject = () => {
 
 return (
   // レンダリングのための<div>要素を作成
-  <div className="flex justify-center dark:bg-darkgrey">
-    <canvas ref={canvasRef} id="canvas"></canvas>
+  // レンダリングのための<div>要素を作成
+  <div className="flex justify-center dark:bg-darkgrey overflow-y-hidden overflow-x-hidden">
+    <canvas ref={canvasRef} id="canvas" className="w-full"></canvas>
   </div>
 );
 };
